@@ -1,0 +1,27 @@
+Inheritance can be used for:
+Adding Functionaliy
+Sometimesvendors send updates or don't allow access to class implementations.  We may need to derive classes and add things to them.
+Redefining Functionality
+Can make functions work differently with the same name. However, the function prototypes must be identical, including return values, names, and parameters.
+Adding to Existing Functionality
+Can reuse parent function and simply add to them, extending the power of that function without writing an entirely new definition.
+Hiding Functionality
+C++ cannot remove functionality, but can hide functionality using the "PRIVATE" identifier. Provides encapsulation.
+
+Principles
+Object Oriented Programming provides organization and maintainable code. Objects have states and behaviors.
+Cohesion
+Groups code to a single task. Each object should have one responsibility. Cohesive code is reusable. Helper functions promote cohesion.
+Coupling
+Loose relations create flexible code. Tight coupling promotes rippling, which is bad.
+*Low coupling and high cohesion are best. Intermediary classes help manage these topics.*
+Encapsulation
+Helps to create loosely coupled code. Allows changes in fewer locations and limits access to states and behaviors.
+Abstraction
+"Abstraction is helpful because it strips everything down to its most basic principles. This can help when encapsulating functionality of an object because it can help identify the important information that should be made visible and the unimportant information which can be made hidden. The principle of abstraction helps to reduce redundant code and create more maintainable code" //couldn't have said it better myself.
+Inheritance
+Allows us to create similar, yet different, objects while reusing the code shared between them.
+
+Version Control
+Version control is important because it streamlines EVERYTHING.
+In our Fightopia project, while we did use Drop Box, we hit the time constraints as a result of only one of us being able to update the code. We had multiple algorithms to work on, however, and if we had been using a version control of sorts, we could have been working on different functions at the same time, instead of passing a baton.
