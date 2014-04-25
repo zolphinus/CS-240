@@ -1,0 +1,80 @@
+# depslib dependency file v1.0
+1397572605 source:c:\users\zolphinus\desktop\code blocks projects\design patterns\main.cpp
+	<iostream>
+	"BusinessPublisher.h"
+	"SubscriberTypes.h"
+
+1397263609 source:c:\users\zolphinus\desktop\code blocks projects\design patterns\newspublisher.cpp
+	"NewsPublisher.h"
+	"Subscriber.h"
+
+1397263598 c:\users\zolphinus\desktop\code blocks projects\design patterns\newspublisher.h
+	<string>
+	<list>
+
+1397263766 c:\users\zolphinus\desktop\code blocks projects\design patterns\subscriber.h
+	<string>
+
+1397263872 source:c:\users\zolphinus\desktop\code blocks projects\design patterns\subscriber.cpp
+	"Subscriber.h"
+	"NewsPublisher.h"
+	<iostream>
+
+1397263975 c:\users\zolphinus\desktop\code blocks projects\design patterns\emailsubscriber.h
+	"Subscriber.h"
+	<string>
+
+1397224687 source:c:\users\zolphinus\desktop\code blocks projects\design patterns\emailsubscriber.cpp
+	"EmailSubscriber.h"
+
+1397224837 source:c:\users\zolphinus\desktop\code blocks projects\design patterns\smssubscriber.cpp
+	"SMSSubscriber.h"
+
+1397263975 c:\users\zolphinus\desktop\code blocks projects\design patterns\smssubscriber.h
+	"Subscriber.h"
+	<string>
+
+1397225446 source:c:\users\zolphinus\desktop\code blocks projects\design patterns\businesspublisher.cpp
+	"BusinessPublisher.h"
+	<string>
+
+1397225462 c:\users\zolphinus\desktop\code blocks projects\design patterns\businesspublisher.h
+	"NewsPublisher.h"
+	<string>
+
+1397263955 c:\users\zolphinus\desktop\code blocks projects\design patterns\subscribertypes.h
+	"Subscriber.h"
+	"EmailSubscriber.h"
+	"SMSSubscriber.h"
+	"PonyExpressSubscriber.h"
+
+1397263975 c:\users\zolphinus\desktop\code blocks projects\design patterns\ponyexpresssubscriber.h
+	"Subscriber.h"
+	<string>
+
+1397225009 source:c:\users\zolphinus\desktop\code blocks projects\design patterns\ponyexpresssubscriber.cpp
+	"PonyExpressSubscriber.h"
+
+1397225733 source:c:\users\zolphinus\desktop\code blocks projects\design patterns\publishertypes.cpp
+	"NewsPublisher.h"
+	"BusinessPublisher.h"
+
+1397261303 c:\users\zolphinus\desktop\code blocks projects\design patterns\nullsubscriber.h
+	"Subscriber.h"
+	<string>
+
+1397261893 source:c:\users\zolphinus\desktop\code blocks projects\design patterns\nullsubscriber.cpp
+	"NullSubscriber.h"
+
+1397263719 source:c:\users\zolphinus\desktop\code blocks projects\design patterns\realsubscriber.cpp
+	"RealSubscriber.h"
+	"NewsPublisher.h"
+	<iostream>
+
+1397263823 c:\users\zolphinus\desktop\code blocks projects\design patterns\realsubscriber.h
+	"Subscriber.h"
+
+1397225405 source:c:\users\zolphinus\desktop\code blocks projects\design patterns\publishertypes.c
+	"NewsPublisher.h"
+	"BusinessPublisher.h"
+
