@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1398638452 source:c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\main.cpp
+	<curses.h>
+	"MapReader.h"
+
+1398638414 source:c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\mapreader.cpp
+	"MapReader.h"
+
+1398638203 c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\mapreader.h
+	<string>
+	<iostream>
+	<fstream>
+	<cstring>
+	<curses.h>
+	<vector>
+	"GameConfig.h"
+
+1398637816 c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\gameconfig.h
+
