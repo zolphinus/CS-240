@@ -18,7 +18,13 @@ void MapReader::ReadMap(string FileName)
     int rowMarker = 0;
     char *cstr = new char[FileName.length()+1];          // converts the string into usable format for opening
     strcpy(cstr, FileName.c_str());
-    mapIn.open("map0.txt");
+    mapIn.open(cstr);
+
+
+    if(mapIn.fail())
+    {
+        std::cout << cstr << std::endl;
+    }
 
     if(mapIn.good()){
         mapIn >> mapTitle;
