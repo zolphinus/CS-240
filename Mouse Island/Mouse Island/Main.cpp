@@ -1,8 +1,9 @@
 #include <curses.h>
-#include "MapReader.h"
+#include "GameController.h"
 
 int main()
 {
-    MapReader test("map0.txt");
+    GameController test("map0.txt");
+    test.printMouse();
     return 0;
 }

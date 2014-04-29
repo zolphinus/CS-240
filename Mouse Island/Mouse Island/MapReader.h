@@ -8,6 +8,9 @@
 #include <curses.h>
 #include <vector>
 #include "GameConfig.h"
+#include "Mouse.h"
+#include "GameObject.h"
+#include "Cat.h"
 
 using namespace std;
 
@@ -17,13 +20,15 @@ using namespace std;
 class MapReader
 {
 public:
-    MapReader(string);
+    MapReader();
     ~MapReader();
 
-
+    void testPrint(Cat&, Mouse&, vector <GameObject*>&);
 
     void PrintWindow(int,int);
-    void ReadMap(string);
+
+
+    bool ReadMap(string, Cat&, Mouse&, vector <GameObject*>&);
     vector <vector <int> > floorMap;
 
 
@@ -37,6 +42,8 @@ private:
     int mapHeight;
     std::string mapTitle;
     int numSimulations;
+
+    bool mapIsRead;
 
 };
 

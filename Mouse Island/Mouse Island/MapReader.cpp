@@ -1,19 +1,22 @@
 #include "MapReader.h"
+#include "GameConfig.h"
 
-MapReader::MapReader(string FileName)
+MapReader::MapReader()
 {
     //mapWindow = newwin(MAP_WINDOW_HEIGHT,MAP_WINDOW_WIDTH,0,0);//creates the window
-    ReadMap(FileName);
+
+
 }
 
 MapReader::~MapReader(){
-    delwin(mapWindow);
+    //delwin(mapWindow);
 }
 
-void MapReader::ReadMap(string FileName)
+bool MapReader::ReadMap(string FileName, Cat& Tom, Mouse& Jerry,
+                        vector <GameObject*>& myObjects)
 {
     ifstream mapIn;
-    char getFileItem;
+    int getFileItem;
 
     int rowMarker = 0;
     char *cstr = new char[FileName.length()+1];          // converts the string into usable format for opening
@@ -21,16 +24,22 @@ void MapReader::ReadMap(string FileName)
     mapIn.open(cstr);
 
 
-    if(mapIn.fail())
-    {
-        std::cout << cstr << std::endl;
-    }
-
     if(mapIn.good()){
         mapIn >> mapTitle;
         mapIn >> numSimulations;
         mapIn >> mapHeight;
         mapIn >> mapWidth;
+
+        floorMap.resize(mapHeight);
+
+        for(int i = 0; i < mapHeight; i++)
+        {
+            floorMap[i].resize(mapWidth);
+        }
+    }
+    else
+    {
+        return false;
     }
 
     while (true)
@@ -42,21 +51,111 @@ void MapReader::ReadMap(string FileName)
             {
                 for(int j = 0; j < mapWidth; j++)
                 {
-                    std::cout << "MONKEY" << std::endl;
+                    mapIn >> getFileItem;
+
+                    if(mapIn.fail())
+                    {
+                        mapIn.clear();
+                        mapIn.ignore();
+                        getFileItem = 0;
+                    }
+
+
+                    floorMap[i][j] = getFileItem;
+                    if(floorMap[i][j] < -1)
+                    {
+                        floorMap[i][j] = -1;
+                    }
+
+                    if(floorMap[i][j] > 4 )
+                    {
+                        floorMap[i][j] = 0;
+                    }
+
+
+                    switch(floorMap[i][j])
+                    {
+                    case MOUSE_SPACE:
+                        if(Jerry.getMouseState() == DOES_NOT_EXIST)
+                        {
+                            Jerry.setYPos(i);
+                            Jerry.setXPos(j);
+                            Jerry.setMouseState(ALIVE);
+                            floorMap[i][j] = LAND_SPACE;
+                        }
+
+                        break;
+                    case CAT_SPACE:
+                        if(Tom.getCatState() == NOT_EXIST)
+                        {
+                            Tom.setYPos(i);
+                            Tom.setXPos(j);
+                            Tom.setCatState(HUNGRY);
+                            floorMap[i][j] = LAND_SPACE;
+                        }
+                        break;
+                    case MOUSE_HOLE:
+                        std::cout << "MOUSE HOLE" << std::endl;
+                        break;
+                    case FOOD_SPACE:
+                        std::cout << "FOOD SPACE" << std::endl;
+                        break;
+                    default:
+                        break;
+                    }
                 }
             }
+            break;
         }
         else
         {
-            std::cout << "MAP DIDN'T LOAD" << std::endl;
-            break;
+            std::cout << cstr << "  was not found!" << std::endl;
+            return false;
         }
-        rowMarker++;
     }
     mapIn.close();
     delete cstr;
     cstr = NULL;
+
+    return true;
 }
+
+
+
+void MapReader::testPrint(Cat& Tom, Mouse& Jerry,
+                        vector <GameObject*>& myObjects)
+{
+    for(int i = 0; i < mapHeight; i++)
+    {
+        for (int j = 0; j < mapWidth; j ++)
+        {
+            switch(floorMap[i][j])
+            {
+            case -1:
+                std::cout << " W";
+                break;
+            case LAND_SPACE:
+                std::cout << " L";
+                break;
+            case MOUSE_SPACE:
+                std::cout << " M";
+                break;
+
+            case CAT_SPACE:
+                std::cout << " C";
+                break;
+
+            case FOOD_SPACE:
+                std::cout << " F";
+                break;
+
+            }
+        }
+        std::cout << std::endl;
+    }
+}
+
+
 
 
 /*
