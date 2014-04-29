@@ -1,9 +1,17 @@
 #include <curses.h>
 #include "GameController.h"
 
+void testDriver();
+
 int main()
 {
-    GameController test("map0.txt");
-    test.printMouse();
+    testDriver();
     return 0;
+}
+
+
+void testDriver(){
+    GameController test("map0.txt");
+    test.consoleTest();
+    test.printMouse();
 }

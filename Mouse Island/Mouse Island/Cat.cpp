@@ -21,8 +21,8 @@ int Cat::getPatience(){
 }
 
 void Cat::updatePatience(){
-    int boredom = std::rand() % 3;
-    int excitement = rand() % 3;
+    int boredom = rand() % 5;
+    int excitement = rand() % 2;
 
     if(patience > 0){
             //Cats sometimes lose or gain interest at random...just like real life

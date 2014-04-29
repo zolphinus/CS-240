@@ -31,8 +31,9 @@ public:
     bool ReadMap(string, Cat&, Mouse&, vector <GameObject*>&);
     vector <vector <int> > floorMap;
 
+    //Need functions to return mapWidth/Height
 
-    char atPosition(int,int);//(y,x) like all of curse
+    int atPosition(int,int);//(y,x) like all of curse
     void setPosition(int,int, char);
     WINDOW* getMapReader();
 

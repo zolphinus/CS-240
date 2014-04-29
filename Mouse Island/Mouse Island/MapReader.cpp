@@ -92,6 +92,8 @@ bool MapReader::ReadMap(string FileName, Cat& Tom, Mouse& Jerry,
                             Jerry.setMouseState(ALIVE);
                             floorMap[i][j] = LAND_SPACE;
                         }
+                        else
+                            floorMap[i][j] = LAND_SPACE;
 
                         break;
                     case CAT_SPACE:
@@ -102,6 +104,8 @@ bool MapReader::ReadMap(string FileName, Cat& Tom, Mouse& Jerry,
                             Tom.setCatState(HUNGRY);
                             floorMap[i][j] = LAND_SPACE;
                         }
+                        else
+                            floorMap[i][j] = LAND_SPACE;
                         break;
                     case MOUSE_HOLE:
                         std::cout << "MOUSE HOLE" << std::endl;
@@ -114,6 +118,14 @@ bool MapReader::ReadMap(string FileName, Cat& Tom, Mouse& Jerry,
                     }
                 }
             }
+
+                if(Jerry.getMouseState() == DOES_NOT_EXIST
+                   || Tom.getCatState() == NOT_EXIST)
+                {
+                std::cout << "A map requires both a cat and mouse to play!" << std::endl;
+                return false;
+                }
+
             break;
         }
         else
@@ -121,6 +133,7 @@ bool MapReader::ReadMap(string FileName, Cat& Tom, Mouse& Jerry,
             std::cout << cstr << "  was not found!" << std::endl;
             return false;
         }
+
     }
     mapIn.close();
     delete cstr;
@@ -233,8 +246,10 @@ void MapReader::PrintWindow(int characterPosY, int characterPosX)
 
 */
 
-char MapReader::atPosition(int yToCheck, int xToCheck)
+int MapReader::atPosition(int yToCheck, int xToCheck)
 {
+    //unbounded check, logic to prevent checking outside of array will be handled
+    //in the checkGameState function in GameController.cpp
     return floorMap[yToCheck][xToCheck];
 }
 
