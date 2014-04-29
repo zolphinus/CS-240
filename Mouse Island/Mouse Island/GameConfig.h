@@ -26,7 +26,9 @@ enum CatState
 
 enum MapTile
 {
+    WATER_SPACE,
     LAND_SPACE,
+    BRIDGE_SPACE,
     MOUSE_SPACE,
     CAT_SPACE,
     MOUSE_HOLE,

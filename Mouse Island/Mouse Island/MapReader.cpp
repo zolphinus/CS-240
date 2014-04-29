@@ -62,14 +62,23 @@ bool MapReader::ReadMap(string FileName, Cat& Tom, Mouse& Jerry,
 
 
                     floorMap[i][j] = getFileItem;
-                    if(floorMap[i][j] < -1)
+                    if(floorMap[i][j] <= -1)
                     {
-                        floorMap[i][j] = -1;
+                        floorMap[i][j] = WATER_SPACE;
                     }
 
-                    if(floorMap[i][j] > 4 )
+                    if(floorMap[i][j] > 6 )
                     {
-                        floorMap[i][j] = 0;
+                        floorMap[i][j] = LAND_SPACE;
+                    }
+
+                    if(floorMap[i][j] == LAND_SPACE)
+                    {
+                        if( i == 0 || j == 0 ||
+                            i == (mapHeight - 1) || j == (mapWidth - 1))
+                        {
+                            floorMap[i][j] = BRIDGE_SPACE;
+                        }
                     }
 
 
@@ -125,31 +134,37 @@ bool MapReader::ReadMap(string FileName, Cat& Tom, Mouse& Jerry,
 void MapReader::testPrint(Cat& Tom, Mouse& Jerry,
                         vector <GameObject*>& myObjects)
 {
+    //Y pos
     for(int i = 0; i < mapHeight; i++)
     {
+        //X Pos
         for (int j = 0; j < mapWidth; j ++)
         {
-            switch(floorMap[i][j])
+            if(Jerry.getYPos() == i && Jerry.getXPos() == j)
             {
-            case -1:
-                std::cout << " W";
-                break;
-            case LAND_SPACE:
-                std::cout << " L";
-                break;
-            case MOUSE_SPACE:
                 std::cout << " M";
-                break;
+            }
 
-            case CAT_SPACE:
+            else if (Tom.getYPos() == i && Tom.getXPos() == j)
+            {
                 std::cout << " C";
-                break;
-
-            case FOOD_SPACE:
-                std::cout << " F";
-                break;
+            }
+            else{
+                switch(floorMap[i][j])
+                {
+                case WATER_SPACE:
+                    std::cout << " W";
+                    break;
+                case BRIDGE_SPACE:
+                    std::cout << " B";
+                    break;
+                case LAND_SPACE:
+                    std::cout << " L";
+                    break;
+                }
 
             }
+
         }
         std::cout << std::endl;
     }
