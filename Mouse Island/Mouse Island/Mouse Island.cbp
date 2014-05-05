@@ -38,6 +38,8 @@
 		<Unit filename="GameController.h" />
 		<Unit filename="GameObject.cpp" />
 		<Unit filename="GameObject.h" />
+		<Unit filename="GameStats.cpp" />
+		<Unit filename="GameStats.h" />
 		<Unit filename="Main.cpp" />
 		<Unit filename="MapReader.cpp" />
 		<Unit filename="MapReader.h" />
