@@ -7,42 +7,52 @@
 
 GameController::GameController(std::string mapFile)
 {
-    srand(time(NULL));
 
-    mapIsRead = islandMap.ReadMap(mapFile, Tom, Jerry, myObjects);
+    Jerry = new Mouse();
+    Tom = new Cat();
+    srand(time(NULL));
+    mapName = mapFile;
+
+    mapIsRead = islandMap.ReadMap(mapName, Tom, Jerry);
+
+
 
     if(mapIsRead != true)
     {
         std::cout << "Unable to load map, exiting program" << std::endl;
-        for(int i = 0; i < 10; i++){
-
-        islandMap.testPrint(Tom, Jerry, myObjects);
-        moveAnimal(Jerry);
-        moveAnimal(Tom);
-        clearScreen();
-        }
+        numTrials = 99999999;
     }
-    else{
-
+    else
+    {
+        numTrials = 0;
+        initFreqMap();
+    }
 }
+
+GameController::~GameController(){
+    delete Jerry;
+    Jerry = NULL;
+    delete Tom;
+    Tom = NULL;
 }
 
 
 void GameController::testPrint()
 {
-    islandMap.testPrint(Tom, Jerry, myObjects);
+    islandMap.testPrint(Tom, Jerry);
 }
 
 
 void GameController::printMouse(){
-    std::cout << "Mouse Y " << Jerry.getYPos() << " X " << Jerry.getXPos() << std::endl;
+    std::cout << "Mouse Y " << Jerry->getYPos() << " X " << Jerry->getXPos() << std::endl;
 }
 
 
-void GameController::moveAnimal(GameObject& currentAnimal)
+void GameController::moveAnimal(GameObject* currentAnimal)
 {
 
     int moveDirection = rand() % TOTAL_DIRECTIONS;
+    bool legalMove = true;
     int yModifier = 0;
     int xModifier = 0;
 
@@ -62,27 +72,44 @@ void GameController::moveAnimal(GameObject& currentAnimal)
         break;
     }
 
-    //if it's the mouse, moves unrestricted
-    if(currentAnimal.getYPos() == Jerry.getYPos()
-       && currentAnimal.getXPos() == Jerry.getXPos()){
-            currentAnimal.setYPos(currentAnimal.getYPos() + yModifier);
-            currentAnimal.setXPos(currentAnimal.getXPos() + xModifier);
-            Jerry.setCurrentStam(Jerry.getCurrentStam() - 1);
+
+    //checks for legal x/y coordinates before moving
+    if( (currentAnimal->getXPos() + xModifier) < 0 ||
+       (currentAnimal->getXPos() + xModifier) > (islandMap.getMapWidth() - 1)){
+           legalMove = false;
        }
-    if(currentAnimal.getYPos() == Tom.getYPos()
-       && currentAnimal.getXPos() == Tom.getXPos()){
-           if(islandMap.atPosition(Tom.getYPos() + yModifier, Tom.getXPos() + xModifier) == WATER_SPACE)
-           {
-               //If the cat's next move would be water, it does nothing instead
-               Tom.updatePatience();
-           }
-           else
-           {
-            currentAnimal.setYPos(currentAnimal.getYPos() + yModifier);
-            currentAnimal.setXPos(currentAnimal.getXPos() + xModifier);
-            Tom.updatePatience();
-           }
+
+    if( (currentAnimal->getYPos() + yModifier) < 0 ||
+       (currentAnimal->getYPos() + yModifier) > (islandMap.getMapHeight() - 1)){
+           legalMove = false;
        }
+
+
+       //Overload Game Objects to compare X/Y values automatically
+    if(legalMove == true)
+    {
+        //if it's the mouse, moves unrestricted
+        if(currentAnimal == Jerry){
+                currentAnimal->setYPos(currentAnimal->getYPos() + yModifier);
+                currentAnimal->setXPos(currentAnimal->getXPos() + xModifier);
+                Jerry->setCurrentStam(Jerry->getCurrentStam() - 1);
+                frequencyMap[currentAnimal->getYPos()][currentAnimal->getXPos()]++;
+           }
+        if(currentAnimal == Tom && Tom->getIsOnMap() == TRUE){
+               if(islandMap.atPosition(Tom->getYPos() + yModifier, Tom->getXPos() + xModifier) == WATER_SPACE)
+               {
+                   //If the cat's next move would be water, it does nothing instead
+                   Tom->updatePatience();
+               }
+               else
+               {
+                currentAnimal->setYPos(currentAnimal->getYPos() + yModifier);
+                currentAnimal->setXPos(currentAnimal->getXPos() + xModifier);
+                Tom->updatePatience();
+               }
+           }
+    }
+
 
 
 }
@@ -95,24 +122,161 @@ void GameController::clearScreen()
 
 
 void GameController::getStamAndPatience(){
-    std::cout << "Mouse stamina is " << Jerry.getCurrentStam() << "/" << Jerry.getMaxStam() << std::endl;
-    std::cout << "Cat Patience is " << Tom.getPatience() << std::endl;
+    std::cout << "Mouse stamina is " << Jerry->getCurrentStam() << "/" << Jerry->getMaxStam() << std::endl;
+    std::cout << "Cat Patience is " << Tom->getPatience() << std::endl;
 
 }
 
 void GameController::consoleTest()
 {
-    for(int i = 0; i < 10; i++){
-
-        islandMap.testPrint(Tom, Jerry, myObjects);
+    for(int i = 0; i < 250; i++){
+        //
+        islandMap.testPrint(Tom, Jerry);
         getStamAndPatience();
         moveAnimal(Jerry);
         moveAnimal(Tom);
+        checkGameState();
         clearScreen();
     }
 }
 
 void GameController::runGame()
 {
+    while(numTrials < islandMap.getNumSimulations()){
+            isPlaying = true;
+            std::cout << "GAME " << numTrials + 1 << std::endl;
+        while(isPlaying == true){
 
+
+            islandMap.testPrint(Tom, Jerry);
+            getStamAndPatience();
+            moveAnimal(Jerry);
+            moveAnimal(Tom);
+            checkGameState();
+            clearScreen();
+        }
+
+        //Output information to file here
+
+        resetGame();
+    }
+}
+
+void GameController::checkGameState(){
+
+    int tempTile;
+    //check Jerry first
+
+    tempTile = islandMap.atPosition(Jerry->getYPos(), Jerry->getXPos());
+
+
+    switch(tempTile){
+    case WATER_SPACE :
+        //Drowns
+        Jerry->setMouseState(DROWNED);
+        std::cout << "DROWNED" << std::endl;
+        isPlaying = false;
+
+        //Update Game Records
+
+        Jerry->setMouseState(DOES_NOT_EXIST);
+        Tom->setCatState(NOT_EXIST);
+
+        numTrials++;
+        break;
+    case FOOD_SPACE:
+        //Eats food
+        Jerry->setMouseState(ALIVE);
+        Jerry->setCurrentStam(Jerry->getMaxStam());
+        islandMap.setPosition(Jerry->getYPos(), Jerry->getXPos(), LAND_SPACE);
+        break;
+    case MOUSE_HOLE:
+        Jerry->setMouseState(IN_HOLE);
+        break;
+    case LAND_SPACE:
+        Jerry->setMouseState(ALIVE);
+        break;
+    }
+
+    if(Jerry->getCurrentStam() <= 0){
+        std::cout << "The mouse starved." << std::endl;
+        Jerry->setMouseState(STARVED);
+    }
+
+    //Tom
+    tempTile = islandMap.atPosition(Tom->getYPos(), Tom->getXPos());
+
+
+    switch(tempTile){
+    case WATER_SPACE :
+        std::cout << "ERROR CAT IN WATER!!!" << std::endl;
+        isPlaying == false;
+        break;
+    case BRIDGE_SPACE:
+        if(Tom->getPatience() <= 0 && Tom->getIsOnMap() == TRUE)
+        {
+            std::cout << "The cat got bored and left the island..." << std::endl;
+            Tom->setIsOnMap(FALSE);
+        }
+        break;
+    }
+
+    if(Tom->getIsOnMap() == TRUE
+       && Tom->getXPos() == Jerry->getXPos()
+       && Tom->getYPos() == Jerry->getYPos()){
+        std::cout << "The cat at the mouse..." << std::endl;
+        Jerry->setMouseState(EATEN);
+        Tom->setCatState(NOT_EXIST);
+        isPlaying = false;
+       }
+
+}
+
+
+void GameController::resetGame(){
+    bool mapIsRead = islandMap.ReadMap(mapName, Tom, Jerry);
+
+    if(mapIsRead == false)
+    {
+        std::cout << "ERROR LOADING MAP" << std::endl;
+        //if there is an error loading map, skips this trial
+        isPlaying = false;
+    }
+    else{
+        Jerry->setCurrentStam(Jerry->getMaxStam());
+        Jerry->setMouseState(ALIVE);
+        Tom->setPatience(STARTING_PATIENCE);
+        Tom->setCatState(HUNGRY);
+
+
+    }
+}
+
+
+void GameController::initFreqMap(){
+
+    this->frequencyMap.resize(islandMap.getMapHeight());
+
+        for(int i = 0; i < islandMap.getMapHeight(); i++)
+        {
+            this->frequencyMap[i].resize(islandMap.getMapWidth(), 0);
+        }
+
+    for(int j = 0; j < islandMap.getMapHeight(); j++){
+
+        for(int k = 0; k < islandMap.getMapWidth(); k++){
+            this->frequencyMap[j][k] = 0;
+        }
+    }
+
+}
+
+void GameController::printFreqMap(){
+    for(int j = 0; j < islandMap.getMapHeight(); j++){
+
+        for(int k = 0; k < islandMap.getMapWidth(); k++){
+            std::cout << " " << frequencyMap[j][k];
+        }
+        std::cout << std::endl;
+    }
 }

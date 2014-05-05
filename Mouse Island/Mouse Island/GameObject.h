@@ -8,15 +8,24 @@ public:
     ~GameObject();
     int getXPos();
     int getYPos();
+
     int getIsOnMap();
     void setXPos(int);
     void setYPos(int);
+
+    void setDefaultPosition();
+    void resetToDefault();
+
     void setIsOnMap(bool);
     char getMapIcon();
 
 private:
     int xPos;
     int yPos;
+
+    int defaultXPos;
+    int defaultYPos;
+
     bool isOnMap;
 
 protected:

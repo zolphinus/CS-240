@@ -23,18 +23,23 @@ public:
     MapReader();
     ~MapReader();
 
-    void testPrint(Cat&, Mouse&, vector <GameObject*>&);
+    void testPrint(Cat*, Mouse*);
 
     void PrintWindow(int,int);
 
 
-    bool ReadMap(string, Cat&, Mouse&, vector <GameObject*>&);
+    bool ReadMap(string, Cat*, Mouse*);
     vector <vector <int> > floorMap;
 
     //Need functions to return mapWidth/Height
 
     int atPosition(int,int);//(y,x) like all of curse
-    void setPosition(int,int, char);
+    void setPosition(int,int, int);
+    int getMapWidth();
+    int getMapHeight();
+
+    int getNumSimulations();
+
     WINDOW* getMapReader();
 
 private:
@@ -42,8 +47,8 @@ private:
     int mapWidth;
     int mapHeight;
     std::string mapTitle;
-    int numSimulations;
 
+    int numSimulations;
     bool mapIsRead;
 
 };

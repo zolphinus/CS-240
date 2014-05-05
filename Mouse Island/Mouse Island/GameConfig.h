@@ -5,18 +5,22 @@ const int MAP_WINDOW_WIDTH = 20;
 const int MAP_WINDOW_HEIGHT = 20;
 
 const int MAX_STAMINA = 100;
-const int STARTING_PATIENCE = 125;
+const int STARTING_PATIENCE = 75;
 
 const int CONSOLE_SIZE = 3;
 
 enum MouseState
 {
-    DOES_NOT_EXIST,
-    ALIVE,
+
     DROWNED,
     EATEN,
     STARVED,
-    ESCAPED
+    ESCAPED,
+    TOTAL_MOUSE_STATS,
+
+    DOES_NOT_EXIST,
+    IN_HOLE,
+    ALIVE,
 };
 
 enum CatState

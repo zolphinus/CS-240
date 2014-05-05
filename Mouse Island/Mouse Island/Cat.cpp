@@ -1,5 +1,6 @@
 #include "Cat.h"
 #include <time.h>
+#include <iostream>
 #include <cstdlib>
 
 Cat::Cat(){

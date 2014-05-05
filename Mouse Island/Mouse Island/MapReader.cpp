@@ -12,8 +12,7 @@ MapReader::~MapReader(){
     //delwin(mapWindow);
 }
 
-bool MapReader::ReadMap(string FileName, Cat& Tom, Mouse& Jerry,
-                        vector <GameObject*>& myObjects)
+bool MapReader::ReadMap(string FileName, Cat* Tom, Mouse* Jerry)
 {
     ifstream mapIn;
     int getFileItem;
@@ -85,11 +84,13 @@ bool MapReader::ReadMap(string FileName, Cat& Tom, Mouse& Jerry,
                     switch(floorMap[i][j])
                     {
                     case MOUSE_SPACE:
-                        if(Jerry.getMouseState() == DOES_NOT_EXIST)
+                        if(Jerry->getMouseState() == DOES_NOT_EXIST)
                         {
-                            Jerry.setYPos(i);
-                            Jerry.setXPos(j);
-                            Jerry.setMouseState(ALIVE);
+                            Jerry->setYPos(i);
+                            Jerry->setXPos(j);
+                            Jerry->setDefaultPosition();
+
+                            Jerry->setMouseState(ALIVE);
                             floorMap[i][j] = LAND_SPACE;
                         }
                         else
@@ -97,21 +98,18 @@ bool MapReader::ReadMap(string FileName, Cat& Tom, Mouse& Jerry,
 
                         break;
                     case CAT_SPACE:
-                        if(Tom.getCatState() == NOT_EXIST)
+                        if(Tom->getCatState() == NOT_EXIST)
                         {
-                            Tom.setYPos(i);
-                            Tom.setXPos(j);
-                            Tom.setCatState(HUNGRY);
+                            Tom->setYPos(i);
+                            Tom->setXPos(j);
+                            Tom->setDefaultPosition();
+                            Tom->setIsOnMap(TRUE);
+
+                            Tom->setCatState(HUNGRY);
                             floorMap[i][j] = LAND_SPACE;
                         }
                         else
                             floorMap[i][j] = LAND_SPACE;
-                        break;
-                    case MOUSE_HOLE:
-                        std::cout << "MOUSE HOLE" << std::endl;
-                        break;
-                    case FOOD_SPACE:
-                        std::cout << "FOOD SPACE" << std::endl;
                         break;
                     default:
                         break;
@@ -119,8 +117,8 @@ bool MapReader::ReadMap(string FileName, Cat& Tom, Mouse& Jerry,
                 }
             }
 
-                if(Jerry.getMouseState() == DOES_NOT_EXIST
-                   || Tom.getCatState() == NOT_EXIST)
+                if(Jerry->getMouseState() == DOES_NOT_EXIST
+                   || Tom->getCatState() == NOT_EXIST)
                 {
                 std::cout << "A map requires both a cat and mouse to play!" << std::endl;
                 return false;
@@ -144,8 +142,7 @@ bool MapReader::ReadMap(string FileName, Cat& Tom, Mouse& Jerry,
 
 
 
-void MapReader::testPrint(Cat& Tom, Mouse& Jerry,
-                        vector <GameObject*>& myObjects)
+void MapReader::testPrint(Cat* Tom, Mouse* Jerry)
 {
     //Y pos
     for(int i = 0; i < mapHeight; i++)
@@ -153,28 +150,35 @@ void MapReader::testPrint(Cat& Tom, Mouse& Jerry,
         //X Pos
         for (int j = 0; j < mapWidth; j ++)
         {
-            if(Jerry.getYPos() == i && Jerry.getXPos() == j)
+            if(Jerry->getYPos() == i && Jerry->getXPos() == j)
             {
                 std::cout << " M";
             }
 
-            else if (Tom.getYPos() == i && Tom.getXPos() == j)
-            {
-                std::cout << " C";
-            }
-            else{
-                switch(floorMap[i][j])
+            else if (Tom->getIsOnMap() == true &&
+                     Tom->getYPos() == i && Tom->getXPos() == j)
                 {
-                case WATER_SPACE:
-                    std::cout << " W";
-                    break;
-                case BRIDGE_SPACE:
-                    std::cout << " B";
-                    break;
-                case LAND_SPACE:
-                    std::cout << " L";
-                    break;
+                    std::cout << " C";
                 }
+                else{
+                    switch(floorMap[i][j])
+                    {
+                    case WATER_SPACE:
+                        std::cout << " W";
+                        break;
+                    case BRIDGE_SPACE:
+                        std::cout << " B";
+                        break;
+                    case LAND_SPACE:
+                        std::cout << " L";
+                        break;
+                    case FOOD_SPACE:
+                        std::cout << " F";
+                        break;
+                    case MOUSE_HOLE:
+                        std::cout << " _";
+                        break;
+                    }
 
             }
 
@@ -253,11 +257,24 @@ int MapReader::atPosition(int yToCheck, int xToCheck)
     return floorMap[yToCheck][xToCheck];
 }
 
-void MapReader::setPosition(int yToSet, int xToSet, char newChar){
-    floorMap[yToSet][xToSet] = newChar;
+void MapReader::setPosition(int yToSet, int xToSet, int newInt){
+    floorMap[yToSet][xToSet] = newInt;
 }
 
 
 WINDOW* MapReader::getMapReader(){
     return mapWindow;
+}
+
+int MapReader::getMapHeight(){
+    return mapHeight;
+}
+
+int MapReader::getMapWidth(){
+    return mapWidth;
+}
+
+
+int MapReader::getNumSimulations(){
+    return numSimulations;
 }

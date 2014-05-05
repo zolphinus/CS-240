@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1398742892 source:c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\main.cpp
+1399269322 source:c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\main.cpp
 	<curses.h>
 	"GameController.h"
 
-1398742308 source:c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\mapreader.cpp
+1399262960 source:c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\mapreader.cpp
 	"MapReader.h"
 	"GameConfig.h"
 
-1398742532 c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\mapreader.h
+1399176041 c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\mapreader.h
 	<string>
 	<iostream>
 	<fstream>
@@ -19,25 +19,26 @@
 	"GameObject.h"
 	"Cat.h"
 
-1398741636 c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\gameconfig.h
+1399265792 c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\gameconfig.h
 
-1398743109 source:c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\gamecontroller.cpp
+1399269358 source:c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\gamecontroller.cpp
 	"GameController.h"
 	"MapReader.h"
 	<time.h>
 	<cstdlib>
 	<ctime>
 
-1398742930 c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\gamecontroller.h
+1399269235 c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\gamecontroller.h
 	"GameConfig.h"
 	"MapReader.h"
 	"Mouse.h"
 	"Cat.h"
+	"GameStats.h"
 
-1398647533 source:c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\gameobject.cpp
+1399172924 source:c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\gameobject.cpp
 	"GameObject.h"
 
-1398657605 c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\gameobject.h
+1399177641 c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\gameobject.h
 
 1398657924 source:c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\mouse.cpp
 	"Mouse.h"
@@ -46,12 +47,20 @@
 	"GameConfig.h"
 	"GameObject.h"
 
-1398743177 source:c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\cat.cpp
+1399176601 source:c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\cat.cpp
 	"Cat.h"
 	<time.h>
+	<iostream>
 	<cstdlib>
 
-1398655762 c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\cat.h
+1399172222 c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\cat.h
 	"GameConfig.h"
 	"GameObject.h"
+
+1399269452 c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\gamestats.h
+	"GameConfig.h"
+	<vector>
+
+1399266339 source:c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\gamestats.cpp
+	"GameStats.h"
 

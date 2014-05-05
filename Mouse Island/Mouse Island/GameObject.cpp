@@ -18,6 +18,18 @@ void GameObject::setYPos(int newYPos){
     yPos = newYPos;
 }
 
+void GameObject::setDefaultPosition(){
+    defaultXPos = xPos;
+    defaultYPos = yPos;
+}
+
+void GameObject::resetToDefault(){
+    xPos = defaultXPos;
+    yPos = defaultYPos;
+}
+
+
+
 void GameObject::setIsOnMap(bool isOnMap){
     this->isOnMap = isOnMap;
 }
