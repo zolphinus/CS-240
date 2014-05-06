@@ -6,10 +6,7 @@
 
 package rock.paper.scissors;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 /**
  *
@@ -24,9 +21,9 @@ public class RockPaperScissors {
         // TODO code application logic here
         
         
-        JFrame frame = new FilledFrame();
+        JFrame frame = new RockPaperScissorsFrame();
         
-        frame.setTitle("FRAME TITLE HERE");
+        frame.setTitle("Rock-Paper-Scissors");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
