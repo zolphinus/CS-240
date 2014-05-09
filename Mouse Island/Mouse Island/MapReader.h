@@ -29,7 +29,7 @@ public:
 
 
     bool ReadMap(string, Cat*, Mouse*);
-    vector <vector <int> > floorMap;
+
 
     //Need functions to return mapWidth/Height
 
@@ -37,10 +37,14 @@ public:
     void setPosition(int,int, int);
     int getMapWidth();
     int getMapHeight();
+    std::string getMapTitle();
 
     int getNumSimulations();
 
     WINDOW* getMapReader();
+
+
+    vector <vector <int> >& getFloorMap();
 
 private:
     WINDOW *mapWindow;
@@ -48,6 +52,7 @@ private:
     int mapHeight;
     std::string mapTitle;
 
+    vector <vector <int> > floorMap;
     int numSimulations;
     bool mapIsRead;
 

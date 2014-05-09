@@ -21,12 +21,16 @@ public:
     void initFreqMap();
     void printFreqMap();
 
+
 private:
     MapReader islandMap;
     std::string mapName;
+    GameStats stats;
+
 
     Mouse* Jerry;
     Cat* Tom;
+    int seed;
     bool mapIsRead;
     bool isPlaying;
 
@@ -39,7 +43,7 @@ private:
     void clearScreen();
     void resetGame();
     void checkGameState();
-
+    void wait(int);
 
 
 

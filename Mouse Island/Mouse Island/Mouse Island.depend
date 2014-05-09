@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1399269322 source:c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\main.cpp
+1399495814 source:c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\main.cpp
 	<curses.h>
 	"GameController.h"
 
-1399262960 source:c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\mapreader.cpp
+1399512459 source:c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\mapreader.cpp
 	"MapReader.h"
 	"GameConfig.h"
 
-1399176041 c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\mapreader.h
+1399512481 c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\mapreader.h
 	<string>
 	<iostream>
 	<fstream>
@@ -19,16 +19,16 @@
 	"GameObject.h"
 	"Cat.h"
 
-1399265792 c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\gameconfig.h
+1399496083 c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\gameconfig.h
 
-1399269358 source:c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\gamecontroller.cpp
+1399514974 source:c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\gamecontroller.cpp
 	"GameController.h"
 	"MapReader.h"
 	<time.h>
 	<cstdlib>
 	<ctime>
 
-1399269235 c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\gamecontroller.h
+1399513207 c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\gamecontroller.h
 	"GameConfig.h"
 	"MapReader.h"
 	"Mouse.h"
@@ -57,10 +57,15 @@
 	"GameConfig.h"
 	"GameObject.h"
 
-1399269452 c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\gamestats.h
+1399511953 c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\gamestats.h
 	"GameConfig.h"
 	<vector>
+	<string>
 
-1399266339 source:c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\gamestats.cpp
+1399513070 source:c:\users\zolphinus\documents\github\cs-240\mouse island\mouse island\gamestats.cpp
 	"GameStats.h"
+	<iostream>
+	<vector>
+	<string>
+	<fstream>
 

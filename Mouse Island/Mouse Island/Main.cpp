@@ -5,10 +5,10 @@ void testDriver();
 
 int main()
 {
-    testDriver();
+    //testDriver();
 
-    //GameController ourGame("map0.txt");
-    //ourGame.runGame();
+    GameController ourGame("map0.txt");
+    ourGame.runGame();
 
     return 0;
 }

@@ -7,7 +7,7 @@ const int MAP_WINDOW_HEIGHT = 20;
 const int MAX_STAMINA = 100;
 const int STARTING_PATIENCE = 75;
 
-const int CONSOLE_SIZE = 3;
+const int CONSOLE_SIZE = 10;
 
 enum MouseState
 {

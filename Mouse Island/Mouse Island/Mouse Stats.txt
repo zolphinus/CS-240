@@ -1,0 +1,250 @@
+Map Name: MouseIslandTest
+ 
+Simulation ran 7 time(s). 
+ 
+The seed number was 0
+ 
+Mouse drowned 6 time(s). 
+Mouse was eaten 1 time(s). 
+Mouse starved 0 time(s). 
+Mouse escaped 0 time(s). 
+FREQUENCY MAP OF SQUARES MOUSE VISITED 
+ 
+ 
+0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 
+0 0 1 4 1 0 0 0 
+1 3 1 4 0 0 0 0 
+1 4 6 6 4 3 1 1 
+2 6 11 7 5 3 1 1 
+0 4 8 11 3 0 0 1 
+0 2 2 3 1 0 0 0 
+1 1 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 
+
+
+Map Name: MouseIslandTest
+ 
+Simulation ran 7 time(s). 
+ 
+The seed number was 0
+ 
+Mouse drowned 5 time(s). 
+Mouse was eaten 2 time(s). 
+Mouse starved 0 time(s). 
+Mouse escaped 0 time(s). 
+FREQUENCY MAP OF SQUARES MOUSE VISITED 
+ 
+ 
+0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 
+1 1 0 2 1 0 2 1 
+0 1 4 7 4 1 1 0 
+0 2 6 4 3 1 1 1 
+0 0 1 3 4 1 0 1 
+0 0 1 0 5 2 0 0 
+0 0 2 1 1 0 0 0 
+0 0 0 0 0 0 0 0 
+
+
+Map Name: MouseIslandTest
+ 
+Simulation ran 7 time(s). 
+ 
+The seed number was 1399509937
+ 
+Mouse drowned 7 time(s). 
+Mouse was eaten 0 time(s). 
+Mouse starved 0 time(s). 
+Mouse escaped 0 time(s). 
+FREQUENCY MAP OF SQUARES MOUSE VISITED 
+ 
+ 
+0 0 0 3 4 0 0 0 
+0 0 0 3 7 1 0 0 
+0 0 0 2 4 3 1 0 
+0 0 0 2 3 2 1 1 
+1 2 2 3 7 1 0 0 
+2 5 5 4 5 0 0 0 
+1 2 0 2 1 0 0 0 
+0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 
+
+
+Map Name: MouseIslandTest
+ 
+Simulation ran 3 time(s). 
+ 
+The seed number was 1399510109
+ 
+Mouse drowned 3 time(s). 
+Mouse was eaten 0 time(s). 
+Mouse starved 0 time(s). 
+Mouse escaped 0 time(s). 
+FREQUENCY MAP OF SQUARES MOUSE VISITED 
+ 
+ 
+0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 
+0 1 1 1 1 0 0 0 
+0 2 1 0 1 1 0 0 
+1 5 6 3 2 2 0 0 
+1 6 6 3 0 0 0 0 
+0 2 1 0 0 0 0 0 
+1 1 1 0 0 0 0 0 
+1 0 0 0 0 0 0 0 
+
+
+Map Name: MouseIslandTest
+ 
+Simulation ran 26 time(s). 
+ 
+The seed number was 1399510211
+ 
+Mouse drowned 20 time(s). 
+Mouse was eaten 6 time(s). 
+Mouse starved 0 time(s). 
+Mouse escaped 0 time(s). 
+FREQUENCY MAP OF SQUARES MOUSE VISITED 
+ 
+ 
+0 0 1 0 2 1 0 0 
+0 1 4 2 2 1 0 0 
+0 2 7 2 0 2 0 0 
+1 5 8 7 3 4 0 0 
+2 9 11 11 10 7 3 3 
+2 7 15 9 15 11 1 1 
+1 7 10 17 11 7 0 0 
+0 4 10 10 5 6 1 0 
+1 3 7 2 1 5 1 1 
+0 1 5 3 1 2 0 0 
+
+
+Map Name: MouseIslandTest
+ 
+Simulation ran 400 time(s). 
+ 
+The seed number was 1399511382
+ 
+Mouse drowned 340 time(s). 
+Mouse was eaten 59 time(s). 
+Mouse starved 0 time(s). 
+Mouse escaped 1 time(s). 
+FREQUENCY MAP OF SQUARES MOUSE VISITED 
+ 
+ 
+1 1 7 8 10 5 1 0 
+4 12 20 15 15 8 2 2 
+7 30 46 47 56 16 9 5 
+10 47 82 123 93 50 15 4 
+25 95 188 294 207 79 25 14 
+35 104 275 311 342 130 47 16 
+34 106 201 298 184 101 47 16 
+20 63 102 144 88 69 37 11 
+8 29 58 60 42 20 14 5 
+1 10 17 17 12 14 5 3 
+
+
+Map Name: MouseIslandTest
+ 
+Simulation ran 6 time(s). 
+ 
+The seed number was 1399511439
+ 
+Mouse drowned 1519 time(s). 
+Mouse was eaten 265 time(s). 
+Mouse starved 0 time(s). 
+Mouse escaped 0 time(s). 
+FREQUENCY MAP OF SQUARES MOUSE VISITED 
+ 
+ 
+12 31 42 32 21 7 10 0 
+21 70 96 78 57 25 17 8 
+45 132 196 191 150 51 36 13 
+86 254 435 551 350 222 107 45 
+135 416 839 1264 827 412 212 76 
+177 564 1380 1358 1312 597 253 96 
+130 408 890 1394 895 505 255 99 
+91 281 478 597 463 321 163 62 
+41 111 210 205 223 148 86 29 
+10 33 48 66 56 53 30 15 
+
+
+Map Name: MouseIslandTest
+ 
+Simulation ran 1000 time(s). 
+ 
+The seed number was 1399511655
+ 
+Mouse drowned 858 time(s). 
+Mouse was eaten 142 time(s). 
+Mouse starved 0 time(s). 
+Mouse escaped 0 time(s). 
+FREQUENCY MAP OF SQUARES MOUSE VISITED 
+ 
+ 
+7 23 29 20 12 6 8 0 
+11 47 58 41 34 15 10 4 
+20 67 117 100 83 30 28 7 
+40 120 238 310 197 128 78 28 
+75 219 458 761 471 236 124 49 
+105 347 780 766 722 347 155 60 
+76 245 521 795 499 275 146 52 
+53 166 281 348 268 161 90 30 
+26 69 126 121 130 63 47 17 
+4 19 24 34 21 24 14 7 
+
+
+Map Name: MouseIslandTest
+ 
+Simulation ran 10000 time(s). 
+ 
+The seed number was 1399511790
+ 
+Mouse drowned 8345 time(s). 
+Mouse was eaten 1647 time(s). 
+Mouse starved 0 time(s). 
+Mouse escaped 8 time(s). 
+FREQUENCY MAP OF SQUARES MOUSE VISITED 
+ 
+ 
+29 115 219 213 171 82 38 0 
+102 362 575 525 363 229 105 54 
+249 796 1256 1209 951 414 243 100 
+487 1382 2337 3099 1975 1335 560 218 
+777 2402 4540 6887 4513 2285 1109 403 
+977 3029 7087 7080 7444 3368 1445 485 
+817 2353 4639 7327 4931 2786 1299 463 
+480 1374 2328 3291 2627 1905 956 331 
+223 596 1070 1108 1179 846 508 163 
+81 191 312 366 290 321 177 54 
+
+
+Map Name: MouseIslandTest
+ 
+Simulation ran 2 time(s). 
+ 
+The seed number was 1399512586
+ 
+Mouse drowned 1 time(s). 
+Mouse was eaten 1 time(s). 
+Mouse starved 0 time(s). 
+Mouse escaped 0 time(s). 
+FREQUENCY MAP OF SQUARES MOUSE VISITED 
+ 
+ 
+0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 
+0 1 1 1 0 0 0 0 
+0 1 2 2 0 0 0 0 
+0 0 0 2 1 0 0 0 
+0 0 1 1 1 0 0 0 
+0 0 1 0 0 0 0 0 
+0 0 2 1 0 0 0 0 
+0 0 2 1 0 0 0 0 
+0 0 0 0 0 0 0 0 
+
+

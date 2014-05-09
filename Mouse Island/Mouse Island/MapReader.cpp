@@ -141,6 +141,10 @@ bool MapReader::ReadMap(string FileName, Cat* Tom, Mouse* Jerry)
 }
 
 
+vector <vector <int> >& MapReader::getFloorMap(){
+
+    return floorMap;
+}
 
 void MapReader::testPrint(Cat* Tom, Mouse* Jerry)
 {
@@ -188,21 +192,15 @@ void MapReader::testPrint(Cat* Tom, Mouse* Jerry)
 }
 
 
+std::string MapReader::getMapTitle(){
+    return mapTitle;
+}
 
 
 /*
 
-void MapReader::PrintWindow(int characterPosY, int characterPosX)
+void MapReader::PrintWindow()
 {
-    bool enemyLocated = false;
-    int startPrintY=8, startPrintX=25, xShift, yShift;
-    int YHolder, XHolder;
-
-    startPrintX = characterPosX;
-    startPrintX -= 25;
-
-    startPrintY=characterPosY;
-    startPrintY -= 8;
 
     init_pair(1,COLOR_CYAN,COLOR_BLACK);//----Initialize color pair
     wbkgd(mapWindow, COLOR_PAIR(1));
