@@ -1,11 +1,14 @@
-#include "mainwindow.h"
+#include "sortdialog.h"
 #include <QApplication>
+
+
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+    QApplication app(argc, argv);
+    SortDialog *dialog = new SortDialog;
+    dialog->setColumnRange('C', 'F');
 
-    return a.exec();
+    dialog->show();
+    return app.exec();
 }

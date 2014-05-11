@@ -12,11 +12,14 @@ TARGET = Sort
 TEMPLATE = app
 
 
-SOURCES += main.cpp \
-    dialog.cpp
+SOURCES += \
+    main.cpp \
+    sortdialog.cpp
 
 HEADERS  += \
-    dialog.h
+    sortdialog.h
 
 FORMS += \
-    dialog.ui
+    sortdialog.ui
+
+OTHER_FILES +=
