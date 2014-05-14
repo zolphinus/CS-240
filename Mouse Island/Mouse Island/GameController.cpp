@@ -148,6 +148,7 @@ void GameController::runGame()
 {
     if(isPlaying = true)
     {
+        std::cout << std::endl << std::endl << std::endl;
     while(numTrials < islandMap.getNumSimulations()){
             isPlaying = true;
             std::cout << "GAME " << numTrials + 1 << std::endl;

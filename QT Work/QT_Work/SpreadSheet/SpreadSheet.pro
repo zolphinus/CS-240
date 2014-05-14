@@ -12,11 +12,17 @@ TARGET = SpreadSheet
 TEMPLATE = app
 
 
-SOURCES += main.cpp\
-        mainwindow.cpp
+SOURCES += main.cpp \
+        mainwindow.cpp \
+    Find/finddialog.cpp \
+    spreadsheet.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    Find/finddialog.h \
+    spreadsheet.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    GoToCell/gotocelldialog.ui \
+    Sort/sortdialog.ui
 
 RESOURCES = spreadsheet.qrc
