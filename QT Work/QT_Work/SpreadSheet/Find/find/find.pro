@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2014-05-07T22:32:49
+# Project created by QtCreator 2014-05-13T13:43:18
 #
 #-------------------------------------------------
 
@@ -8,16 +8,13 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = QT_Work
+TARGET = find
 TEMPLATE = app
 
 
-SOURCES += \
-    finddialog.cpp \
-    main.cpp
+SOURCES += main.cpp\
+        finddialog.cpp
 
-HEADERS  += \
-    finddialog.h \
-    main.h
+HEADERS  += finddialog.h
 
-FORMS    += mainwindow.ui
+FORMS    +=
