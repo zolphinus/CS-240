@@ -15,11 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp \
         mainwindow.cpp \
     Find/finddialog.cpp \
-    spreadsheet.cpp
+    spreadsheet.cpp \
+    cell.cpp
 
 HEADERS  += mainwindow.h \
     Find/finddialog.h \
-    spreadsheet.h
+    spreadsheet.h \
+    cell.h
 
 FORMS    += mainwindow.ui \
     GoToCell/gotocelldialog.ui \
